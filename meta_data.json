@@ -1,0 +1,11 @@
+{
+    "categories": {
+        "0": "email"
+    },
+    "description": "This plugin has been recently acquired by Zeroqode - please bear with us while we review the code and make improvements/fixes where necessary.\n\nA rich-featured plugin to send transactional emails and broadcast (multiple recipient) emails through Postmark.\nIncludes attachments and more features.\n\nTo receive special offers and important updates please visit: https://zeroqo.de/updates\n\n🔔 Get our 15 Top Plugins Bundle with 15 most popular plugins for only 20$/month.\nPlugins included in the Bundle:\n\n- Bubble Page to PDF converter\n- Stripe Marketplace Express\n- Air Calendar (Full Calendar 5.9.0)\n- AWS File uploader - Any size\n- Advanced Rich Text Editor\n- Mapbox Map\n- Phone Input Number with Formatting\n- Advanced Multi Uploader\n- Video Player\n- Dynamic Height & Width of Elements\n- Audio Recorder\n- Repeating Group to CSV\n- Print Pro\n- Advanced Audio Player\n- Easy File Downloader\n\nGet it here: https://zeroqode.com/bundle\n\nDEMO & DOCUMENTATION\nhttps://zeroqode.com/plugin/rich-postmark-emails-1712920995675x692266033816245600\n\nNEED HELP BUILDING A CUSTOM APPLICATION?\nhttps://zeroqode.com\n\nSUPERCHARGE YOUR APP WITH ZEROQODE PLUGINS\nhttps://zeroqode.com/plugins\n\nQUESTIONS OR NEED HELP?\nhttps://forum.zeroqode.com ",
+    "image": "//s3.amazonaws.com/appforest_uf/f1593734612175x586531267911184800/scroll-quill.png",
+    "license": "open_source",
+    "link": "https://zeroqode.com/plugins",
+    "name": "Rich Postmark emails",
+    "sa_node_version": 18
+}

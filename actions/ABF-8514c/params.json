@@ -1,0 +1,304 @@
+{
+    "category": "plugins",
+    "display": "Postmark - Send batch email",
+    "fields": {
+        "AAp": {
+            "caption": "From",
+            "doc": "Sender email. You can change the \"From\" field at https://account.postmarkapp.com/signature_domains. Also, it's possible to write in this field a different from name, like this, without quotes: \"Vinicius Brito support@unlimitedbubbling.dev\" instead of just the email \"support@unlimitedbubbling.dev\".",
+            "editor": "DynamicValue",
+            "name": "from",
+            "rank": 1,
+            "value": "text"
+        },
+        "AAq": {
+            "caption": "To",
+            "doc": "A list of recipients email addresses. Max 500.",
+            "editor": "DynamicValue",
+            "is_list": true,
+            "name": "list_of_tos",
+            "rank": 2,
+            "value": "text"
+        },
+        "AAr": {
+            "caption": "Subject",
+            "doc": "Email's subject",
+            "editor": "DynamicValue",
+            "name": "subject",
+            "optional": true,
+            "rank": 8,
+            "value": "text"
+        },
+        "AAs": {
+            "caption": "Text body",
+            "doc": "Plain text email body. Example: Hello!",
+            "editor": "DynamicValue",
+            "is_list": false,
+            "long_text": true,
+            "name": "text_body",
+            "optional": true,
+            "rank": 4,
+            "value": "text"
+        },
+        "AAt": {
+            "caption": "HTML Body",
+            "doc": "Email body with HTML tags. Example: <b>Hello</b> <img src=\\\"cid:image.jpg\\\"/> | Always test by sending one email to yourself since this one has more details than the simpler option above. Remember to escape double quotes! It works like this: \\\"",
+            "editor": "DynamicValue",
+            "is_list": false,
+            "long_text": true,
+            "name": "html_body",
+            "optional": true,
+            "rank": 5,
+            "value": "text"
+        },
+        "AAu": {
+            "caption": "Reply to",
+            "doc": "Optional.",
+            "editor": "DynamicValue",
+            "name": "reply_to",
+            "optional": true,
+            "rank": 7,
+            "value": "text"
+        },
+        "AAv": {
+            "caption": "Stream ID",
+            "doc": "Leave empty to send through your default transactional emails stream. Get this ID from your Postmark dashboard, click \"Servers\", then choose your server, then the message stream you want to sent the message through. If you're in doubt on how any of this works, check https://postmarkapp.com/support/article/1207-how-to-create-and-send-through-message-streams. When using a transactional message stream, do mind these rules https://postmarkapp.com/transactional-email. When using a broadcast message stream, do mind these rules https://postmarkapp.com/support/article/1207-how-to-create-and-send-through-message-streams and https://postmarkapp.com/support/article/1208-how-to-add-an-unsubscribe-link ",
+            "editor": "DynamicValue",
+            "name": "stream_id",
+            "optional": true,
+            "rank": 11,
+            "value": "text"
+        },
+        "AAw": {
+            "caption": "Attach file(s)",
+            "doc": "Attention: This is a single list of attachment files to be sent to everyone. In other words, everyone gets the same attachment. Too many files and the action may time out and fail. A list of files. And by file I mean Bubble's normal \"file type\" field. Total message size, including attachments, can be up to 10MB total.  Forbidden File Types: vbs, exe, bin, bat, chm, com, cpl, crt, hlp, hta, inf, ins, isp, jse, lnk, mdb, pcd, pif, reg, scr, sct, shs, vbe, vba, wsf, wsh, wsl, msc, msi, msp, mst.",
+            "editor": "DynamicValue",
+            "is_list": true,
+            "name": "attachment_files",
+            "optional": true,
+            "rank": 12,
+            "value": "file"
+        },
+        "AAy": {
+            "caption": "CC",
+            "doc": "Cc recipient email address. Multiple addresses are comma separated, like this (without quotes) \"email1@example.com,email2@example.com,email3@example.com\". Max 50.",
+            "editor": "DynamicValue",
+            "name": "cc",
+            "optional": true,
+            "rank": 9,
+            "value": "text"
+        },
+        "AAz": {
+            "caption": "BCC",
+            "doc": "Bcc recipient email address. Multiple addresses are comma separated, like this (without quotes) \"email1@example.com,email2@example.com,email3@example.com\". Max 50.",
+            "editor": "DynamicValue",
+            "name": "bcc",
+            "optional": true,
+            "rank": 10,
+            "value": "text"
+        },
+        "ABA": {
+            "caption": "Mandatory fields",
+            "editor": "Label",
+            "name": "mandatory_fields",
+            "rank": 0
+        },
+        "ABB": {
+            "caption": "One of these fields is mandatory. Filling one makes the other optional. Fill at least one.",
+            "editor": "Label",
+            "name": "one_of_these_fields_is_mandatory._filling_one_makes_the_other_optional.",
+            "rank": 3
+        },
+        "ABC": {
+            "caption": "Optional fields",
+            "editor": "Label",
+            "name": "optional_fields",
+            "rank": 6
+        },
+        "ABD": {
+            "caption": "Track opens",
+            "default_val": true,
+            "doc": "If you want to track whenever an email gets opened. You can see the data in your Postmark dashboard.",
+            "editor": "DynamicValue",
+            "name": "track_opens",
+            "rank": 13,
+            "value": "boolean"
+        },
+        "ABE": {
+            "caption": "Track link clicks",
+            "default_val": "HtmlAndText",
+            "doc": "Whether you want to track whenever a link inside your email is clicked and in which version(s) you want this tracking to happen.  See this data in your Postmark dashboard.",
+            "editor": "Dropdown",
+            "name": "track_link_clicks",
+            "options": "None,HtmlAndText,HtmlOnly,TextOnly",
+            "rank": 14
+        },
+        "ABG": {
+            "caption": "Email variables (Optional)",
+            "doc": "This works with both HTML and Plain text email bodies. Here you can define email variables. Use this to send customized messages to each recipient. Examples: You want to use the customer's name, so you can write the email like this, without quotes: \"Hello dear {{var1}}, I'm happy to have you with me. I will call you at {{var2}}, thanks!\" and then in the Var 1 field below you pass a list of names (list of texts) so each email will replace that {{var1}} with the respective item in the text list, in other words, the first email will pick the first name of the list, and var2 may be a list of texts containing phone numbers. Reminder, syntax inside the email body is: {{var1}}, {{var2}} and on. Make sure all the lists of variables have the same size, else you may send an email with an empty variable and it will be weird for the receiver. If you see [object Object] in your email body, then it means you sent a \"thing\", for example a user, instead of a field of the thing, for example User's Name, fix your dynamic expression.",
+            "editor": "Label",
+            "is_list": false,
+            "name": "email_variables",
+            "rank": 15,
+            "value": "text"
+        },
+        "ABK": {
+            "caption": "Var 1",
+            "doc": "Use this in the email body as {{var1}}. Is a list of anything parseable as text. Accepts text, number, date, images, files and yes/no. Note that images and files will be rendered as their URL text, like \"//myapp.com/file.jpg\". ",
+            "editor": "DynamicValue",
+            "is_list": true,
+            "name": "var_1",
+            "optional": true,
+            "rank": 16,
+            "value": "_any_thing"
+        },
+        "ABN": {
+            "caption": "Var 2",
+            "editor": "DynamicValue",
+            "is_list": true,
+            "name": "var_2",
+            "optional": true,
+            "rank": 17,
+            "value": "_any_thing"
+        },
+        "ABO": {
+            "caption": "Var 3",
+            "editor": "DynamicValue",
+            "is_list": true,
+            "name": "var_3",
+            "optional": true,
+            "rank": 18,
+            "value": "_any_thing"
+        },
+        "ABP": {
+            "caption": "Var 4",
+            "editor": "DynamicValue",
+            "is_list": true,
+            "name": "var_4",
+            "optional": true,
+            "rank": 19,
+            "value": "_any_thing"
+        },
+        "ABQ": {
+            "caption": "Var 5",
+            "editor": "DynamicValue",
+            "is_list": true,
+            "name": "var_5",
+            "optional": true,
+            "rank": 20,
+            "value": "_any_thing"
+        },
+        "ABR": {
+            "caption": "Var 6",
+            "editor": "DynamicValue",
+            "is_list": true,
+            "name": "var_6",
+            "optional": true,
+            "rank": 21,
+            "value": "_any_thing"
+        },
+        "ABS": {
+            "caption": "Var 7",
+            "editor": "DynamicValue",
+            "is_list": true,
+            "name": "var_7",
+            "optional": true,
+            "rank": 22,
+            "value": "_any_thing"
+        },
+        "ABT": {
+            "caption": "Var 8",
+            "editor": "DynamicValue",
+            "is_list": true,
+            "name": "var_8",
+            "optional": true,
+            "rank": 23,
+            "value": "_any_thing"
+        },
+        "ABU": {
+            "caption": "Var 9",
+            "editor": "DynamicValue",
+            "is_list": true,
+            "name": "var_9",
+            "optional": true,
+            "rank": 24,
+            "value": "_any_thing"
+        },
+        "ABV": {
+            "caption": "Var 10",
+            "editor": "DynamicValue",
+            "is_list": true,
+            "name": "var_10",
+            "optional": true,
+            "rank": 25,
+            "value": "_any_thing"
+        },
+        "ABc": {
+            "caption": "You can get the \"Message ID\" returned from Postmark by saving in your database the result of this workflow action. Use the \"Result of step X\" to attain it. It is optional, but when you need some advanced tracking it is useful. A suggestion is to store it alongside the recipient address and other information you used in the email so you can more easily find it in the Postmark dashboard or even keep your own internal logs. Note that this action returns a list of texts, one for each email, so you will store it in a log thing in your database using \"Set list\".",
+            "editor": "Label",
+            "name": "aa",
+            "rank": 26
+        },
+        "ABw": {
+            "caption": "Server API tokens",
+            "doc": "By default the action uses API key from plugin tabs. Fill in this file to use another key",
+            "editor": "DynamicValue",
+            "name": "server_api_tokens",
+            "optional": true,
+            "rank": 27,
+            "value": "text"
+        }
+    },
+    "return_value": {
+        "ABb": {
+            "caption": "Message IDs",
+            "is_list": true,
+            "name": "message_ids",
+            "rank": 0,
+            "value": "text"
+        },
+        "ABm": {
+            "caption": "Error code",
+            "is_list": true,
+            "name": "error_code",
+            "rank": 1,
+            "value": "number"
+        },
+        "ABn": {
+            "caption": "Message",
+            "is_list": true,
+            "name": "message",
+            "rank": 2,
+            "value": "text"
+        },
+        "ABo": {
+            "caption": "Submitted at",
+            "is_list": true,
+            "name": "submitted_at",
+            "rank": 3,
+            "value": "text"
+        },
+        "ABp": {
+            "caption": "To",
+            "is_list": true,
+            "name": "to",
+            "rank": 4,
+            "value": "text"
+        },
+        "ABq": {
+            "caption": "Cc",
+            "is_list": true,
+            "name": "cc",
+            "rank": 5,
+            "value": "text"
+        },
+        "ABr": {
+            "caption": "Bcc",
+            "is_list": true,
+            "name": "bcc",
+            "rank": 6,
+            "value": "text"
+        }
+    },
+    "type": "server_side",
+    "use_packages": true
+}

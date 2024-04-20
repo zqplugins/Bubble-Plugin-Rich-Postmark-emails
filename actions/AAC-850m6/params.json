@@ -1,0 +1,194 @@
+{
+    "category": "plugins",
+    "display": "Postmark - Send email",
+    "fields": {
+        "AAE": {
+            "caption": "From",
+            "doc": "Sender email. You can change the \"From\" field at https://account.postmarkapp.com/signature_domains. Also, it's possible to write in this field a different from name, like this, without quotes: \"Vinicius Brito support@unlimitedbubbling.dev\" instead of just the email \"support@unlimitedbubbling.dev\".",
+            "editor": "DynamicValue",
+            "name": "from",
+            "rank": 1,
+            "value": "text"
+        },
+        "AAF": {
+            "caption": "To",
+            "doc": "Recipient email address. Multiple addresses are comma separated, like this (without quotes) \"email1@example.com,email2@example.com,email3@example.com\". Max 50.",
+            "editor": "DynamicValue",
+            "name": "to",
+            "rank": 2,
+            "value": "text"
+        },
+        "AAG": {
+            "caption": "Subject",
+            "doc": "Email's subject",
+            "editor": "DynamicValue",
+            "name": "subject",
+            "optional": true,
+            "rank": 8,
+            "value": "text"
+        },
+        "AAH": {
+            "caption": "Text body",
+            "doc": "Plain text email body. Example: Hello!",
+            "editor": "DynamicValue",
+            "long_text": true,
+            "name": "text_body",
+            "optional": true,
+            "rank": 4,
+            "value": "text"
+        },
+        "AAI": {
+            "caption": "HTML Body",
+            "doc": "Email body with HTML tags. Example: <b>Hello</b> <img src=\\\"cid:image.jpg\\\"/> | Remember to escape double quotes!",
+            "editor": "DynamicValue",
+            "long_text": true,
+            "name": "html_body",
+            "optional": true,
+            "rank": 5,
+            "value": "text"
+        },
+        "AAJ": {
+            "caption": "Reply to",
+            "doc": "Optional.",
+            "editor": "DynamicValue",
+            "name": "reply_to",
+            "optional": true,
+            "rank": 7,
+            "value": "text"
+        },
+        "AAK": {
+            "caption": "Stream ID",
+            "doc": "Leave empty to send through your default transactional emails stream. Get this ID from your Postmark dashboard, click \"Servers\", then choose your server, then the message stream you want to sent the message through. If you're in doubt on how any of this works, check https://postmarkapp.com/support/article/1207-how-to-create-and-send-through-message-streams. When using a transactional message stream, do mind these rules https://postmarkapp.com/transactional-email. When using a broadcast message stream, do mind these rules https://postmarkapp.com/support/article/1207-how-to-create-and-send-through-message-streams and https://postmarkapp.com/support/article/1208-how-to-add-an-unsubscribe-link ",
+            "editor": "DynamicValue",
+            "name": "stream_id",
+            "optional": true,
+            "rank": 11,
+            "value": "text"
+        },
+        "AAM": {
+            "caption": "Attach file(s)",
+            "doc": "Too many files and the action may time out and fail. A list of files. And by file I mean Bubble's normal \"file type\" field. Total message size, including attachments, can be up to 10MB total.  Forbidden File Types: vbs, exe, bin, bat, chm, com, cpl, crt, hlp, hta, inf, ins, isp, jse, lnk, mdb, pcd, pif, reg, scr, sct, shs, vbe, vba, wsf, wsh, wsl, msc, msi, msp, mst.",
+            "editor": "DynamicValue",
+            "is_list": true,
+            "name": "attachment_files",
+            "optional": true,
+            "rank": 12,
+            "value": "file"
+        },
+        "AAi": {
+            "caption": "CC",
+            "doc": "Cc recipient email address. Multiple addresses are comma separated, like this (without quotes) \"email1@example.com,email2@example.com,email3@example.com\". Max 50.",
+            "editor": "DynamicValue",
+            "name": "cc",
+            "optional": true,
+            "rank": 9,
+            "value": "text"
+        },
+        "AAj": {
+            "caption": "BCC",
+            "doc": "Bcc recipient email address. Multiple addresses are comma separated, like this (without quotes) \"email1@example.com,email2@example.com,email3@example.com\". Max 50.",
+            "editor": "DynamicValue",
+            "name": "bcc",
+            "optional": true,
+            "rank": 10,
+            "value": "text"
+        },
+        "AAk": {
+            "caption": "Mandatory fields",
+            "editor": "Label",
+            "name": "mandatory_fields",
+            "rank": 0
+        },
+        "AAl": {
+            "caption": "One of these fields is mandatory. Filling one makes the other optional. Fill at least one.",
+            "editor": "Label",
+            "name": "one_of_these_fields_is_mandatory._filling_one_makes_the_other_optional.",
+            "rank": 3
+        },
+        "AAm": {
+            "caption": "Optional fields",
+            "editor": "Label",
+            "name": "optional_fields",
+            "rank": 6
+        },
+        "AAn": {
+            "caption": "Track opens",
+            "default_val": true,
+            "doc": "If you want to track whenever an email gets opened. You can see the data in your Postmark dashboard.",
+            "editor": "DynamicValue",
+            "name": "track_opens",
+            "rank": 13,
+            "value": "boolean"
+        },
+        "AAo": {
+            "caption": "Track link clicks",
+            "default_val": "HtmlAndText",
+            "doc": "Whether you want to track whenever a link inside your email is clicked and in which version(s) you want this tracking to happen.  See this data in your Postmark dashboard.",
+            "editor": "Dropdown",
+            "name": "track_link_clicks",
+            "options": "None,HtmlAndText,HtmlOnly,TextOnly",
+            "rank": 14
+        },
+        "ABa": {
+            "caption": "You can get the \"Message ID\" returned from Postmark by saving in your database the result of this workflow action. Use the \"Result of step X\" to attain it. It is optional, but when you need some advanced tracking it is useful. A suggestion is to store it alongside the recipient address and other information you used in the email so you can more easily find it in the Postmark dashboard or even keep your own internal logs.",
+            "editor": "Label",
+            "name": "aa",
+            "rank": 15
+        },
+        "ABv": {
+            "caption": "Server API tokens",
+            "doc": "By default the action uses API key from plugin tabs. Fill in this file to use another key",
+            "editor": "DynamicValue",
+            "name": "server_api_tokens",
+            "optional": true,
+            "rank": 16,
+            "value": "text"
+        }
+    },
+    "return_value": {
+        "ABZ": {
+            "caption": "Message ID",
+            "name": "message_id",
+            "rank": 0,
+            "value": "text"
+        },
+        "ABf": {
+            "caption": "Error code",
+            "name": "error_code",
+            "rank": 1,
+            "value": "number"
+        },
+        "ABg": {
+            "caption": "Message",
+            "name": "message",
+            "rank": 2,
+            "value": "text"
+        },
+        "ABh": {
+            "caption": "Submitted at",
+            "name": "submitted_at",
+            "rank": 3,
+            "value": "text"
+        },
+        "ABi": {
+            "caption": "To",
+            "name": "to",
+            "rank": 4,
+            "value": "text"
+        },
+        "ABj": {
+            "caption": "Cc",
+            "name": "cc",
+            "rank": 5,
+            "value": "text"
+        },
+        "ABk": {
+            "caption": "Bcc",
+            "name": "bcc",
+            "rank": 6,
+            "value": "text"
+        }
+    },
+    "type": "server_side",
+    "use_packages": true
+}

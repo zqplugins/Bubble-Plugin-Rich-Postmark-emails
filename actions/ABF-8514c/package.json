@@ -1,0 +1,7 @@
+{
+    "dependencies": {
+        "postmark": "latest",
+        "mime-types": "latest",
+        "cross-fetch": "latest"
+    }
+}
